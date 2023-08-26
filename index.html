@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Rock Paper Scissors Game</title>
+    </head>
+    <body>
+        <script>
+            const getComputerChoice = () => {
+                let randomNumber = Math.floor(Math.random() * 3);
+                let computerChoice;
+                switch (randomNumber) {
+                    case 0: 
+                        computerChoice = 'rock';
+                        break;
+                    case 1:
+                        computerChoice = 'scissors';
+                        break;
+                    case 2:
+                        computerChoice = 'paper';
+                        break;
+                };
+                return computerChoice;
+            }
+            console.log(getComputerChoice());
+        </script>
+    </body>
+</html>
