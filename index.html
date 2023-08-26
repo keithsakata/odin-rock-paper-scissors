@@ -7,7 +7,7 @@
     <body>
         <script>
 
-            const playerChoice = 'rock';
+            const playerChoice = 'scissors';
 
             const getComputerChoice = () => {
                 let randomNumber = Math.floor(Math.random() * 3);
@@ -29,19 +29,20 @@
             const computerChoice = getComputerChoice();
 
             const playRound = (pChoice, cChoice) => {
-                console.log(`You chose: ${pChoice}. Computer chose: ${cChoice}.`)
-                if (pChoice != ('rock' || 'paper' ||'scissors')) {
-                    console.log('Error. Please select a valid choice.');
-                } else if (pChoice === cChoice) {
-                    console.log("It's a tie! Try again.")
+                pChoice = pChoice.toLowerCase();
+                if (pChoice === cChoice) {
+                    return `You chose: ${pChoice}. Computer chose: ${cChoice}. 
+It's a tie! Try again.`;
                 } else if ((pChoice === 'rock' && cChoice === 'scissors') || (pChoice === 'paper' && cChoice === 'rock') || (pChoice === 'scissors' && cChoice === 'paper')) {
-                    console.log(`You win! ${pChoice} beats ${cChoice}!`);
+                    return `You chose: ${pChoice}. Computer chose: ${cChoice}.
+You win! ${pChoice} beats ${cChoice}!`;
                 } else {
-                    console.log(`You lose... ${cChoice} beats ${pChoice}!`);
+                    return `You chose: ${pChoice}. Computer chose: ${cChoice}. 
+You lose... ${cChoice} beats ${pChoice}!`;
                 }
             };
 
-            playRound(playerChoice, computerChoice);
+            console.log(playRound(playerChoice, computerChoice));
 
 
 
