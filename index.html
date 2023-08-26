@@ -6,6 +6,9 @@
     </head>
     <body>
         <script>
+
+            const playerChoice = 'rock';
+
             const getComputerChoice = () => {
                 let randomNumber = Math.floor(Math.random() * 3);
                 let computerChoice;
@@ -21,8 +24,27 @@
                         break;
                 };
                 return computerChoice;
-            }
-            console.log(getComputerChoice());
+            };
+            
+            const computerChoice = getComputerChoice();
+
+            const playRound = (pChoice, cChoice) => {
+                console.log(`You chose: ${pChoice}. Computer chose: ${cChoice}.`)
+                if (pChoice != ('rock' || 'paper' ||'scissors')) {
+                    console.log('Error. Please select a valid choice.');
+                } else if (pChoice === cChoice) {
+                    console.log("It's a tie! Try again.")
+                } else if ((pChoice === 'rock' && cChoice === 'scissors') || (pChoice === 'paper' && cChoice === 'rock') || (pChoice === 'scissors' && cChoice === 'paper')) {
+                    console.log(`You win! ${pChoice} beats ${cChoice}!`);
+                } else {
+                    console.log(`You lose... ${cChoice} beats ${pChoice}!`);
+                }
+            };
+
+            playRound(playerChoice, computerChoice);
+
+
+
         </script>
     </body>
 </html>
